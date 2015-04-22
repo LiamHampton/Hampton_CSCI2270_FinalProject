@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1429721375 source:/home/user/Dropbox/Hampton_CSCI2270_FinalProject/Liam_Hampton_Final/main.cpp
+	<iostream>
+	<vector>
+	"METARs.h"
+	<fstream>
+	<sstream>
+	<string>
+	<queue>
+
+1429717404 /home/user/Dropbox/Hampton_CSCI2270_FinalProject/Liam_Hampton_Final/METARs.h
+
+1429721213 source:/home/user/Dropbox/Hampton_CSCI2270_FinalProject/Liam_Hampton_Final/METARs.cpp
+	<iostream>
+	<vector>
+	"METARs.h"
+	<fstream>
+	<sstream>
+	<string>
+	<queue>
+

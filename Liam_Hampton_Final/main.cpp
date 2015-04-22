@@ -4,6 +4,29 @@
 
 //Liam Hampton  Final Project.
 
+/* Get some more data out of the wholeMtr
+    Fix messyZulu
+    ICOM to City library
+    hook the infile up to the Text Data Server for live data
+    Add Lat-Long can be used for algorithm queries
+    Different Libraries by default
+        US 6 hour data
+        More airfields, most recent METAR
+        Historical data for one or two nodes.*/
+
+/*  Easy Kills
+    Create text menu
+    When asked city give all data.
+    When asked for city with greatest or least x, find  city. */
+
+
+/*  Build nodes and link them
+    Algorithm ideas:
+    Graph with lat long values for distances between
+    Which order would you want to fly in order to always be landing at a higher or lower elevation.
+    Tons of data, find a use for it? */
+
+
 #include <iostream>
 #include <vector>
 #include "METARs.h"

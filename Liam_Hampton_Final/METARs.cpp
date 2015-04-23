@@ -8,18 +8,32 @@
 
 using namespace std;
 
-HashTable::HashTable(){
+AirHubs::AirHubs(){
 
 }
-HashTable::~HashTable(){
+AirHubs::~AirHubs(){
     //dtor
 }
 
 
+void AirHubs::insertAirfield(std::string in_IATA, std::string in_updateZ, float m[]){
+    Airfield.IATA=in_IATA;
+    Airfield->updateZ=in_updateZ;
+    Airfield->temp=m[0];
+    Airfield->dewPT=m[1];
+    Airfield->windDir=m[2];
+    Airfield->windSpd=m[3];
+    Airfield->windGust=m[4];
+    Airfield->vis=m[5];
+    Airfield->altr=m[6];
+    Airfield->next=NULL;
+    cout<<"Airfield: "<<Airfield->IATA<<endl;
+    cout<<"Last Updated: "<<Airfield->updateZ<<endl;
+    cout<<"Temperature: "<< Airfield->temp<<endl;
+}
+
+
 /*
-void insertAirfield(std::string in_title);
-
-
 Airfield* findAirfield(std::string in_title, int *index);
 
 

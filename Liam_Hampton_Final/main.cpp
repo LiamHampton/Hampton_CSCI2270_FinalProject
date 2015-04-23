@@ -23,8 +23,8 @@
 /*  Build nodes and link them
     Algorithm ideas:
     Graph with lat long values for distances between
-    Which order would you want to fly in order to always be landing at a higher or lower elevation.
-    Tons of data, find a use for it? */
+    HashTables if just trying to organize many cities and many METARs
+    Which order would you want to fly in order to always be landing at a higher or lower elevation.*/
 
 
 #include <iostream>
@@ -37,16 +37,25 @@
 
 using namespace std;
 
+void menu(){
+    cout<<"======Liam's Bad Use of Good Data======"<<endl;
+    cout<<"1. Choose CSV METARs data."<<endl;
+    cout<<"2. METAR for a specific airfield."<<endl;
+    cout<<"3. Greatest/Least value."<<endl;
+    cout<<"4. Change database."<<endl;
+
+}
+
 void import (string filename){
     ifstream infile("metar9Cities.txt");
-    string ICOM;
+    string IATA;
     string Output;
     string messyZulu;
     string garbage;
     string wholeMtr;
+    AirHubs Airfield;
     //first 6 lines are garbage.
     int Lcounter = 1;
-    HashTable Airfield;
     if(infile.is_open()){
         while (getline(infile,Output)){
             istringstream iss(Output);
@@ -54,15 +63,15 @@ void import (string filename){
                 getline(iss, garbage);
                 Lcounter++;
                 }
-            if(Lcounter > 7){
+            if(Lcounter >= 8){
                 int Ccount=1;
                 float MetData[7];
-                if (Ccount==2){
+                if (Ccount==1){
                     getline(iss, wholeMtr, ',');
                     Ccount++;
                 }
-                if (Ccount == 1){
-                    getline(iss,ICOM, ',');
+                if (Ccount == 2){
+                    getline(iss,IATA, ',');
                     Ccount++;
                 }
                 if (Ccount == 3){
@@ -78,30 +87,29 @@ void import (string filename){
                     for (int i=0; i<=7; i++){
                         getline(iss, holder, ',');
                         MetData[i]=stof(holder);
-                        Ccount++;
-            /*Gonna need to add the nodes here,
-            but have to do the math as well.*/
-
-
-                    }
+                        }
+                    Airfield.insertAirfield(IATA, messyZulu, MetData);
+                    Ccount++;
                 }
-                /*Sky category 16, Flight cat 17, 24hrhigh/lowT 21&22,
-                24hr precip 26, snow 27, MSL 30 */
                 else
                     Lcounter++;
             }
-        }
-    infile.close();
-    cout<<Lcounter<<endl;
+                /*Sky category 16, Flight cat 17, 24hrhigh/lowT 21&22,
+                24hr precip 26, snow 27, MSL 30 */
+
+          }
     }
+infile.close();
+cout<<Lcounter<<endl;
 }
+
 
 int main (){
     //work in progress
+    menu();
     cout<< "What is the file extension"<< endl;
     string file;
     getline(cin, file);
-
 
     import(file);
 

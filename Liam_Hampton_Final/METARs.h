@@ -2,8 +2,9 @@
 #define HASHTABLE_H
 
 struct Airfield{
-    std::string ICOP;
+    std::string IATA;
     std::string updateZ;
+    float m[];
     float temp;
     float dewPT;
     float windDir;
@@ -16,27 +17,27 @@ struct Airfield{
 
     Airfield(){};
 
-    Airfield(std::string in_ICOP, std::string in_updateZ, float m[])
+    Airfield(std::string in_IATA, std::string in_updateZ, float m[])
     {
-        ICOP = in_ICOP;
+        IATA = in_IATA;
         updateZ = in_updateZ;
         temp=m[0];
-        dewPT=m[2];
-        windDir=m[3];
-        windSpd=m[4];
-        windGust=m[5];
-        vis=m[6];
-        altr=m[7];
+        dewPT=m[1];
+        windDir=m[2];
+        windSpd=m[3];
+        windGust=m[4];
+        vis=m[5];
+        altr=m[6];
     }
 
 };
 
-class HashTable
+class AirHubs
 {
     public:
-        HashTable();
-        ~HashTable();
-        void insertAirfield(std::string in_title);
+        AirHubs();
+        ~AirHubs();
+        void insertAirfield(std::string in_IATA, std::string in_updateZ, float m[]);
         Airfield* findAirfield(std::string in_title, int *index);
         void deleteAirfield(std::string in_title);
         void updateAirfield(std::string in_title, float y);
